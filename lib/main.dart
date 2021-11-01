@@ -42,14 +42,51 @@ class Home extends StatelessWidget
                       style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
                     ),
                     SizedBox(height: 30,),
-                    Text("Automatic identity verification which enable you to verify your identity",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Colors.grey,
-                            fontSize: 15
-                          ),
+                    Text(
+                      "Ready for some fun!", textAlign: TextAlign.center,
+                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                     ),
                   ],
+                ),
+                  Container(
+                    height: MediaQuery.of(context).size.height/3,
+                    decoration: const BoxDecoration(
+                        image:DecorationImage(image: AssetImage('assets/kidsLearn.png'))
+                    ),
+                  ),
+
+                  //Login Button.
+                  MaterialButton(
+                    minWidth: double.infinity,
+                    height:60,
+                    onPressed: (){ },
+                    color: Colors.indigoAccent[200],
+                    shape: RoundedRectangleBorder(
+                      side: const BorderSide(
+                        color: Colors.black,
+                      ),
+                      borderRadius: BorderRadius.circular(40)
+                    ),
+                    child: const Text("Login", style: TextStyle(
+                      fontWeight: FontWeight.w600, fontSize: 16, color: Colors.white70
+                    ),),
+                  ),
+
+                //Sign Up button.
+                MaterialButton(
+                  minWidth: double.infinity,
+                  height:60,
+                  onPressed: (){ },
+                  color: Colors.green[400],
+                  shape: RoundedRectangleBorder(
+                      side: const BorderSide(
+                        color: Colors.black,
+                      ),
+                      borderRadius: BorderRadius.circular(40)
+                  ),
+                  child: const Text("Sign Up", style: TextStyle(
+                      fontWeight: FontWeight.w600, fontSize: 16, color: Colors.white70
+                  ),),
                 ),
               ],
             ),
