@@ -46,7 +46,7 @@ class LoginPage extends StatelessWidget
               child: Column(
                 children: [
                   makeInput(label: "Email"),
-                  makeInput(label: "Password", obsureText: true),
+                  makeInput(label: "Password", obscureText: true),
                 ],
               ),
             ),
