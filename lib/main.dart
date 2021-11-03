@@ -1,4 +1,6 @@
+import 'package:cmpe172_learning_app/signup.dart';
 import 'package:flutter/material.dart';
+import 'login.dart';
 
 void main() => runApp(const HomePage());
 
@@ -13,6 +15,7 @@ class HomePage extends StatelessWidget{
     );
   }
 }
+
 class Home extends StatelessWidget
 {
   const Home({Key? key}) : super(key: key);
@@ -59,7 +62,13 @@ class Home extends StatelessWidget
                   MaterialButton(
                     minWidth: double.infinity,
                     height:60,
-                    onPressed: (){ },
+                    //action listener for login button.
+                    onPressed: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const LoginPage()),
+                      );
+                    },
                     color: Colors.indigoAccent[200],
                     shape: RoundedRectangleBorder(
                       side: const BorderSide(
@@ -76,7 +85,13 @@ class Home extends StatelessWidget
                 MaterialButton(
                   minWidth: double.infinity,
                   height:60,
-                  onPressed: (){ },
+                  //action listener for sign up button.
+                  onPressed: (){
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const SignupPage()),
+                    );
+                  },
                   color: Colors.green[400],
                   shape: RoundedRectangleBorder(
                       side: const BorderSide(
@@ -96,3 +111,14 @@ class Home extends StatelessWidget
     );
   }
 }
+
+
+
+
+
+
+
+
+
+
+
