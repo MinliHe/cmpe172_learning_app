@@ -32,7 +32,7 @@ class SignupPage extends StatelessWidget
                     Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: const [
-                        Text ("SIgn up", style: TextStyle(
+                        Text ("Sign up", style: TextStyle(
                           fontSize: 30,
                           fontWeight: FontWeight.bold,
                         ),),
