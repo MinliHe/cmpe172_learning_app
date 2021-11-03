@@ -92,7 +92,7 @@ class Home extends StatelessWidget
                       MaterialPageRoute(builder: (context) => const SignupPage()),
                     );
                   },
-                  color: Colors.green[400],
+                  color: Colors.green[500],
                   shape: RoundedRectangleBorder(
                       side: const BorderSide(
                         color: Colors.black,
