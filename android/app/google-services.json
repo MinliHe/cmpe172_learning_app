@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "371751018389",
+    "project_id": "funtimemathsaround",
+    "storage_bucket": "funtimemathsaround.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:371751018389:android:a2d6081c2b01c6eae5a09c",
+        "android_client_info": {
+          "package_name": "com.example.cmpe172_learning_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "371751018389-bm230l5sivl7ie618rqqjnhhs0uujtgg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5MWMyQwpSCt8ZJ-JBVcF3dnbV3BNNEDM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "371751018389-bm230l5sivl7ie618rqqjnhhs0uujtgg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

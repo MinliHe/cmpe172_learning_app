@@ -11,7 +11,7 @@ class HomePage extends StatelessWidget{
   Widget build(BuildContext context)
   {
     return const MaterialApp(
-      home: Home()
+        home: Home()
     );
   }
 }
@@ -51,35 +51,35 @@ class Home extends StatelessWidget
                     ),
                   ],
                 ),
-                  Container(
-                    height: MediaQuery.of(context).size.height/3,
-                    decoration: const BoxDecoration(
-                        image:DecorationImage(image: AssetImage('assets/kidsLearn.png'))
-                    ),
+                Container(
+                  height: MediaQuery.of(context).size.height/3,
+                  decoration: const BoxDecoration(
+                      image:DecorationImage(image: AssetImage('assets/kidsLearn.png'))
                   ),
+                ),
 
-                  //Login Button.
-                  MaterialButton(
-                    minWidth: double.infinity,
-                    height:60,
-                    //action listener for login button.
-                    onPressed: (){
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => const LoginPage()),
-                      );
-                    },
-                    color: Colors.indigoAccent[200],
-                    shape: RoundedRectangleBorder(
+                //Login Button.
+                MaterialButton(
+                  minWidth: double.infinity,
+                  height:60,
+                  //action listener for login button.
+                  onPressed: (){
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const LoginPage()),
+                    );
+                  },
+                  color: Colors.indigoAccent[200],
+                  shape: RoundedRectangleBorder(
                       side: const BorderSide(
                         color: Colors.black,
                       ),
                       borderRadius: BorderRadius.circular(40)
-                    ),
-                    child: const Text("Login", style: TextStyle(
-                      fontWeight: FontWeight.w600, fontSize: 16, color: Colors.white70
-                    ),),
                   ),
+                  child: const Text("Login", style: TextStyle(
+                      fontWeight: FontWeight.w600, fontSize: 16, color: Colors.white70
+                  ),),
+                ),
 
                 //Sign Up button.
                 MaterialButton(
@@ -111,6 +111,7 @@ class Home extends StatelessWidget
     );
   }
 }
+
 
 
 
