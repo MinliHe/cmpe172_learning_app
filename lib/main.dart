@@ -1,10 +1,16 @@
-import 'package:cmpe172_learning_app/signup.dart';
+import 'package:cmpe172_learning_app/screens/signup.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'login.dart';
+import 'screens/login.dart';
 
-void main() => runApp(const HomePage());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(const HomePage());
+}
 
 class HomePage extends StatelessWidget{
+
   const HomePage({Key? key}) : super(key: key);
 
   @override
@@ -66,7 +72,7 @@ class Home extends StatelessWidget
                   onPressed: (){
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const LoginPage()),
+                      MaterialPageRoute(builder: (context) =>  const LoginState()),
                     );
                   },
                   color: Colors.indigoAccent[200],

@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatelessWidget
-{
-  const LoginPage({Key? key}) : super(key: key);
 
+class LoginState extends StatefulWidget {
+  const LoginState({Key? key}) : super(key: key);
+  @override
+  State<LoginState> createState()  => _LoginPage();
+}
+
+class _LoginPage extends State<LoginState>
+{
   @override
   Widget build(BuildContext context)
   {
