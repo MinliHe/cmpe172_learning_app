@@ -1,9 +1,32 @@
 import 'package:flutter/material.dart';
 
-class SignupPage extends StatelessWidget
-{
-  const SignupPage({Key? key}) : super(key: key);
+class Signup extends StatefulWidget {
 
+  const Signup({Key? key}) : super(key: key);
+
+  @override
+  _SignupPage createState() => _SignupPage();
+}
+
+class _SignupPage extends State<Signup>
+{
+  bool signin = true;
+
+  void changeState()
+  {
+    if(signin) {
+      setState(() {
+        signin = false;
+      });
+    }
+    else
+      {
+        setState(() {
+          signin = true;
+        });
+      }
+  }
+  
   @override
   Widget build(BuildContext context)
   {
@@ -67,7 +90,7 @@ class SignupPage extends StatelessWidget
                       child: MaterialButton(
                         minWidth: double.infinity,
                         height: 60,
-                        onPressed: (){},
+                        onPressed: () => changeState(),
                         color: Colors.green[500],
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(40)
