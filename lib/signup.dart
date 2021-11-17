@@ -32,7 +32,7 @@ class SignupPage extends StatelessWidget
                     Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: const [
-                        Text ("SIgn up", style: TextStyle(
+                        Text ("Sign up", style: TextStyle(
                           fontSize: 30,
                           fontWeight: FontWeight.bold,
                         ),),
@@ -68,7 +68,7 @@ class SignupPage extends StatelessWidget
                         minWidth: double.infinity,
                         height: 60,
                         onPressed: (){},
-                        color: Colors.redAccent,
+                        color: Colors.green[500],
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(40)
                         ),

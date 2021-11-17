@@ -39,7 +39,7 @@
     },
     {
       "name": "cupertino_icons",
-      "rootUri": "file:///Users/minlihe/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/cupertino_icons-1.0.3",
+      "rootUri": "file:///Users/minlihe/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/cupertino_icons-1.0.4",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -52,6 +52,12 @@
     {
       "name": "flutter",
       "rootUri": "file:///Users/minlihe/Downloads/flutter/packages/flutter",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "flutter_inappwebview",
+      "rootUri": "file:///Users/minlihe/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_inappwebview-5.3.2",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -146,13 +152,19 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "youtube_player_flutter",
+      "rootUri": "file:///Users/minlihe/Downloads/flutter/.pub-cache/hosted/pub.dartlang.org/youtube_player_flutter-8.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "cmpe172_learning_app",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2021-11-01T18:15:21.802894Z",
+  "generated": "2021-11-17T17:54:12.779766Z",
   "generator": "pub",
   "generatorVersion": "2.14.3"
 }
