@@ -1,8 +1,23 @@
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatelessWidget
+class Login extends StatefulWidget {
+  const Login({Key? key}) : super(key: key);
+
+  @override
+  _LoginPage createState() => _LoginPage();
+}
+class _LoginPage extends State<Login>
 {
-  const LoginPage({Key? key}) : super(key: key);
+  late TextEditingController emailControl;
+  late TextEditingController passwordControl;
+
+  @override
+  void initState() {
+    super.initState();
+
+    emailControl = new TextEditingController();
+    passwordControl = new TextEditingController();
+  }
 
   @override
   Widget build(BuildContext context)
@@ -45,6 +60,15 @@ class LoginPage extends StatelessWidget
               ),
               child: Column(
                 children: [
+
+                  TextField(
+                    controller: emailControl,
+                  ),
+
+                  TextField(
+                    controller: passwordControl,
+                  ),
+
                   makeInput(label: "Email"),
                   makeInput(label: "Password", obscureText: true),
                 ],

@@ -67,7 +67,7 @@ class Home extends StatelessWidget
                   onPressed: (){
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const LoginPage()),
+                      MaterialPageRoute(builder: (context) => const Login()),
                     );
                   },
                   color: Colors.indigoAccent[200],
