@@ -1,4 +1,7 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'package:fluttertoast/fluttertoast.dart';
 
 class Signup extends StatefulWidget {
 
@@ -10,23 +13,33 @@ class Signup extends StatefulWidget {
 
 class _SignupPage extends State<Signup>
 {
-  bool signin = true;
+  TextEditingController email = TextEditingController();
+  TextEditingController pass = TextEditingController();
 
-  void changeState()
+  Future signup() async
   {
-    if(signin) {
-      setState(() {
-        signin = false;
-      });
-    }
+    var url = "https://undrunk-surveyor.000webhostapp.com/signuup.php";
+    var response = await http.post(Uri.parse(url), body: {
+      "Email": email.text,
+      "Password": pass.text,
+    });
+    String data = await json.decode(json.encode(response.body));
+    if (data == "account already exists") {
+      Fluttertoast.showToast(msg: 'User already exist, please login',);
+      }
     else
       {
-        setState(() {
-          signin = true;
-        });
+        if (data == "true")
+          {
+            Fluttertoast.showToast(msg: 'Account created successfully',);
+          }
+        else
+          {
+            Fluttertoast.showToast(msg: 'Error',);
+          }
       }
   }
-  
+
   @override
   Widget build(BuildContext context)
   {
@@ -90,7 +103,7 @@ class _SignupPage extends State<Signup>
                       child: MaterialButton(
                         minWidth: double.infinity,
                         height: 60,
-                        onPressed: () => changeState(),
+                        onPressed: () => signup(),
                         color: Colors.green[500],
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(40)

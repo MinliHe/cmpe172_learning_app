@@ -10,7 +10,7 @@
 		</data>
 		<key>flutter_assets/AssetManifest.json</key>
 		<data>
-		RmnguSDuAYyfCKMhCGpwAmnmM7Q=
+		656B1iMQIzSTnNxT4KxJorjPoGI=
 		</data>
 		<key>flutter_assets/FontManifest.json</key>
 		<data>
@@ -18,7 +18,7 @@
 		</data>
 		<key>flutter_assets/NOTICES.Z</key>
 		<data>
-		Uzh/ufuTTFnDu+FiFRPEo9mmPYk=
+		EhqbqArWsWtlH1ttUQGNoIXSmSs=
 		</data>
 		<key>flutter_assets/assets/kidsLearn.png</key>
 		<data>
@@ -34,7 +34,7 @@
 		</data>
 		<key>flutter_assets/kernel_blob.bin</key>
 		<data>
-		L6B0ase3zxJNgjpGGiI+gIketXk=
+		u31oG/xFHcXhG7rGDkn204MeQC8=
 		</data>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -47,6 +47,14 @@
 		<key>flutter_assets/packages/flutter_inappwebview/t_rex_runner/t-rex.html</key>
 		<data>
 		60RUAYYoUnETCwVvpgmbGYgxn8Q=
+		</data>
+		<key>flutter_assets/packages/fluttertoast/assets/toastify.css</key>
+		<data>
+		HVkEhoid+n6bwOYCwZg4DdmGBHY=
+		</data>
+		<key>flutter_assets/packages/fluttertoast/assets/toastify.js</key>
+		<data>
+		Q0Yr9JVfSBiRH22TkE46LT+KLE8=
 		</data>
 		<key>flutter_assets/packages/youtube_player_flutter/assets/speedometer.webp</key>
 		<data>
@@ -63,11 +71,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			RmnguSDuAYyfCKMhCGpwAmnmM7Q=
+			656B1iMQIzSTnNxT4KxJorjPoGI=
 			</data>
 			<key>hash2</key>
 			<data>
-			GCMkEe6fGWEiMjB1DwBkr2BgwB697U6mtwvbmWGL0zU=
+			mhOPo8F6ufvXjPSzJnrhWMgZat0q4NIOYEAhx2qfgTs=
 			</data>
 		</dict>
 		<key>flutter_assets/FontManifest.json</key>
@@ -85,11 +93,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Uzh/ufuTTFnDu+FiFRPEo9mmPYk=
+			EhqbqArWsWtlH1ttUQGNoIXSmSs=
 			</data>
 			<key>hash2</key>
 			<data>
-			v0xGAQ3nxJ9pnmQ/Xf73uDHg+jHXWCYF/Icot7f/mDI=
+			fW1rn6Z//uDzzebtnxW9iroajo4EFIDksUZqvjTxwdw=
 			</data>
 		</dict>
 		<key>flutter_assets/assets/kidsLearn.png</key>
@@ -129,11 +137,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			L6B0ase3zxJNgjpGGiI+gIketXk=
+			u31oG/xFHcXhG7rGDkn204MeQC8=
 			</data>
 			<key>hash2</key>
 			<data>
-			1PHWjVFPzjVkY9zrNPmuw+U9SS+3Cf8wSRG55KfAz5k=
+			0SEmrgQuHKyiPHg6gVAhL2ioiEf2LuoJc9lQvgqlwEU=
 			</data>
 		</dict>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
@@ -167,6 +175,28 @@
 			<key>hash2</key>
 			<data>
 			3HLPwfHSpQE7ud40+MrPXiblQtfXE/y+CbhltKrKbd8=
+			</data>
+		</dict>
+		<key>flutter_assets/packages/fluttertoast/assets/toastify.css</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			HVkEhoid+n6bwOYCwZg4DdmGBHY=
+			</data>
+			<key>hash2</key>
+			<data>
+			abr0T+pbPv0zd7q8FU7xuDv4JjuRAgKox9bnRddRNJ8=
+			</data>
+		</dict>
+		<key>flutter_assets/packages/fluttertoast/assets/toastify.js</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Q0Yr9JVfSBiRH22TkE46LT+KLE8=
+			</data>
+			<key>hash2</key>
+			<data>
+			mfqR+tbc9El/g4k3uPxXEF7vEx1a29TL45Ns5tQkjsE=
 			</data>
 		</dict>
 		<key>flutter_assets/packages/youtube_player_flutter/assets/speedometer.webp</key>

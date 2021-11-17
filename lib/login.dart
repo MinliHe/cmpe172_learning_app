@@ -1,4 +1,8 @@
+import 'package:cmpe172_learning_app/video.dart';
 import 'package:flutter/material.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+import 'package:fluttertoast/fluttertoast.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -8,15 +12,23 @@ class Login extends StatefulWidget {
 }
 class _LoginPage extends State<Login>
 {
-  late TextEditingController emailControl;
-  late TextEditingController passwordControl;
+  TextEditingController emailControl = TextEditingController();
+  TextEditingController passwordControl = TextEditingController();
 
-  @override
-  void initState() {
-    super.initState();
-
-    emailControl = new TextEditingController();
-    passwordControl = new TextEditingController();
+  Future lognin() async
+  {
+    var url = "https://undrunk-surveyor.000webhostapp.com/signuup.php";
+    var response = await http.post(Uri.parse(url), body: {
+      "Email": emailControl.text,
+      "Password": passwordControl.text,
+    });
+    var data = json.decode(response.body);
+    if (data == "Success") {
+      Fluttertoast.showToast(
+        msg: 'Login Successful',
+      );
+      Navigator.push(context, MaterialPageRoute(builder: (context) => Video(),),);
+    }
   }
 
   @override
