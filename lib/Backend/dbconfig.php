@@ -1,18 +1,19 @@
 <?php
 
-$db_name = "cmpe172";
-$db_user = "cmpe172learningapp";
-$di_pass = "eoF/5$8x/5#QENhO";
+$db_name = "id17962760_cmpe172_new";
+$db_user = "id17962760_cmpe172user";
+$db_pass = "8OjEJ4n>LfQB4#Ss";
 $db_host = "localhost";
 
-$con = mysql_connect($db_host, $db_user, $db_pass, $db_name)
+$con = new mysqli_connect($db_host, $db_user, $db_pass, $db_name);
 
-if(!$con)
+if($con -> connect_error)
 {
-    echo json_encode("Error");
+    die("Connection failed: ". $conn->connect_error);
 }
 else
 {
-    echo json_encode("connection successful");
+    echo "Connected successfully";
 }
+
 ?>
