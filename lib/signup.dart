@@ -23,19 +23,19 @@ class _SignupPage extends State<Signup>
       "Email": email.text,
       "Password": pass.text,
     });
-    String data = await json.decode(json.encode(response.body));
+    var data = await json.decode(json.encode(response.body));
     if (data == "account already exists") {
-      Fluttertoast.showToast(msg: 'User already exist, please login',);
+      Fluttertoast.showToast(msg: 'User already exist, please login');
       }
     else
       {
         if (data == "true")
           {
-            Fluttertoast.showToast(msg: 'Account created successfully',);
+            Fluttertoast.showToast(msg: 'Account created successfully');
           }
         else
           {
-            Fluttertoast.showToast(msg: 'Error',);
+            Fluttertoast.showToast(msg: 'Error');
           }
       }
   }
@@ -83,7 +83,6 @@ class _SignupPage extends State<Signup>
                         children: [
                           makeInput(label: "Email"),
                           makeInput(label: "Password", obscureText: true),
-                          makeInput(label: "Confirm Password", obscureText: true)
                         ],
                       ),
                     ),

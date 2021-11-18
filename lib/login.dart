@@ -12,22 +12,32 @@ class Login extends StatefulWidget {
 }
 class _LoginPage extends State<Login>
 {
-  TextEditingController emailControl = TextEditingController();
-  TextEditingController passwordControl = TextEditingController();
+  TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
 
   Future lognin() async
   {
     var url = "https://undrunk-surveyor.000webhostapp.com/signuup.php";
     var response = await http.post(Uri.parse(url), body: {
-      "Email": emailControl.text,
-      "Password": passwordControl.text,
+      "Email": email.text,
+      "Password": password.text,
     });
-    var data = json.decode(response.body);
-    if (data == "Success") {
-      Fluttertoast.showToast(
-        msg: 'Login Successful',
-      );
-      Navigator.push(context, MaterialPageRoute(builder: (context) => Video(),),);
+
+    var data = await json.decode(json.encode(response.body));
+
+    if (data == "Do not have an account") {
+      Fluttertoast.showToast(msg: 'Do not have an account, create account');
+    }
+    else
+    {
+      if (data == "false")
+      {
+        Fluttertoast.showToast(msg: 'Incorrect password');
+      }
+      else
+      {
+        print(jsonDecode(data));
+      }
     }
   }
 
@@ -72,15 +82,6 @@ class _LoginPage extends State<Login>
               ),
               child: Column(
                 children: [
-
-                  TextField(
-                    controller: emailControl,
-                  ),
-
-                  TextField(
-                    controller: passwordControl,
-                  ),
-
                   makeInput(label: "Email"),
                   makeInput(label: "Password", obscureText: true),
                 ],
@@ -102,7 +103,12 @@ class _LoginPage extends State<Login>
                 child: MaterialButton(
                   minWidth: double.infinity,
                   height: 60,
-                  onPressed: (){},
+                  onPressed: (){
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Video()),
+                    );
+                  },
                   color: Colors.indigoAccent[200],
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(40)

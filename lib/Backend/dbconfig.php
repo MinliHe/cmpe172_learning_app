@@ -9,10 +9,10 @@ $con = mysql_connect($db_host, $db_user, $db_pass, $db_name)
 
 if(!$con)
 {
-    //echo "connection error";
+    echo json_encode("Error");
 }
 else
 {
-    //echo "connection successful";
+    echo json_encode("connection successful");
 }
 ?>

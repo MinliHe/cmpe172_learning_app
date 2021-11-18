@@ -3,10 +3,9 @@
 require_once("dbconfig.php");
 
 $email = $_POST["email"];
-$name = $_POST["name"];
-$pass = $_POST["pass"];
+$password = $_POST["pass"];
 
-$query = "SELECT * FROM login WHERE email LIKE '$email'";
+$query = "SELECT * FROM signup WHERE email LIKE '$email'";
 $res = mysql_query($con, $query);
 $data = mysql_fetch_array($res);
 
@@ -17,7 +16,7 @@ if($data[0] >= 1)
 else
 {
     //create account
-    $query = "INSERT INTO login(email, name, pass) VALUES ('$email'. '$name', 'pass')"
+    $query = "INSERT INTO signup(email, password) VALUES ('$email', '$password')"
     $res = mysql_query($con,$query)
 
     if($res)
@@ -29,6 +28,4 @@ else
         echo json_encode("false");
     }
 }
-
-
 ?>
