@@ -1,8 +1,44 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'package:fluttertoast/fluttertoast.dart';
 
-class SignupPage extends StatelessWidget
+class Signup extends StatefulWidget {
+
+  const Signup({Key? key}) : super(key: key);
+
+  @override
+  _SignupPage createState() => _SignupPage();
+}
+
+class _SignupPage extends State<Signup>
 {
-  const SignupPage({Key? key}) : super(key: key);
+  TextEditingController email = TextEditingController();
+  TextEditingController pass = TextEditingController();
+
+  Future signup() async
+  {
+    var url = "https://undrunk-surveyor.000webhostapp.com/signuup.php";
+    var response = await http.post(Uri.parse(url), body: {
+      "Email": email.text,
+      "Password": pass.text,
+    });
+    var data = await json.decode(json.encode(response.body));
+    if (data == "account already exists") {
+      Fluttertoast.showToast(msg: 'User already exist, please login');
+      }
+    else
+      {
+        if (data == "true")
+          {
+            Fluttertoast.showToast(msg: 'Account created successfully');
+          }
+        else
+          {
+            Fluttertoast.showToast(msg: 'Error');
+          }
+      }
+  }
 
   @override
   Widget build(BuildContext context)
@@ -47,7 +83,6 @@ class SignupPage extends StatelessWidget
                         children: [
                           makeInput(label: "Email"),
                           makeInput(label: "Password", obscureText: true),
-                          makeInput(label: "Confirm Password", obscureText: true)
                         ],
                       ),
                     ),
@@ -67,7 +102,7 @@ class SignupPage extends StatelessWidget
                       child: MaterialButton(
                         minWidth: double.infinity,
                         height: 60,
-                        onPressed: (){},
+                        onPressed: () => signup(),
                         color: Colors.green[500],
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(40)

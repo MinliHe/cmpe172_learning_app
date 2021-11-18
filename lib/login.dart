@@ -1,8 +1,45 @@
+import 'package:cmpe172_learning_app/video.dart';
 import 'package:flutter/material.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+import 'package:fluttertoast/fluttertoast.dart';
 
-class LoginPage extends StatelessWidget
+class Login extends StatefulWidget {
+  const Login({Key? key}) : super(key: key);
+
+  @override
+  _LoginPage createState() => _LoginPage();
+}
+class _LoginPage extends State<Login>
 {
-  const LoginPage({Key? key}) : super(key: key);
+  TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
+
+  Future lognin() async
+  {
+    var url = "https://undrunk-surveyor.000webhostapp.com/signuup.php";
+    var response = await http.post(Uri.parse(url), body: {
+      "Email": email.text,
+      "Password": password.text,
+    });
+
+    var data = await json.decode(json.encode(response.body));
+
+    if (data == "Do not have an account") {
+      Fluttertoast.showToast(msg: 'Do not have an account, create account');
+    }
+    else
+    {
+      if (data == "false")
+      {
+        Fluttertoast.showToast(msg: 'Incorrect password');
+      }
+      else
+      {
+        print(jsonDecode(data));
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context)
@@ -66,7 +103,12 @@ class LoginPage extends StatelessWidget
                 child: MaterialButton(
                   minWidth: double.infinity,
                   height: 60,
-                  onPressed: (){},
+                  onPressed: (){
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Video()),
+                    );
+                  },
                   color: Colors.indigoAccent[200],
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(40)
