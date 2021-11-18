@@ -1,25 +1,47 @@
 import 'package:cmpe172_learning_app/signup.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'login.dart';
 
-void main() => runApp(const HomePage());
+void main()
+{
+  runApp(
+    const MaterialApp(
+      home: Scaffold(
+        body: SafeArea(
+          child: HomePage(),
+        ),
+      ),
+    )
+  );
+}
 
-class HomePage extends StatelessWidget{
+class HomePage extends StatefulWidget{
   const HomePage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context)
-  {
-    return const MaterialApp(
-        home: Home()
-    );
-  }
+  _Home createState() => _Home();
 }
 
-class Home extends StatelessWidget
+class _Home extends State<HomePage>
 {
-  const Home({Key? key}) : super(key: key);
+  bool signIn = true;
+
+  void changeState()
+  {
+    if(signIn)
+      {
+        setState(() {
+          signIn = false;
+        });
+      }
+    else {
+      setState(() {
+        signIn = true;
+      });
+    }
+  }
+
 
   @override
   Widget build(BuildContext context)
@@ -65,10 +87,14 @@ class Home extends StatelessWidget
                   height:60,
                   //action listener for login button.
                   onPressed: (){
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const Login()),
-                    );
+                    changeState();
+                    if(signIn == true)
+                      {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const Login()),
+                        );
+                      }
                   },
                   color: Colors.indigoAccent[200],
                   shape: RoundedRectangleBorder(
@@ -79,7 +105,7 @@ class Home extends StatelessWidget
                   ),
                   child: const Text("Login", style: TextStyle(
                       fontWeight: FontWeight.w600, fontSize: 16, color: Colors.white70
-                  ),),
+                  ) ,),
                 ),
 
                 //Sign Up button.
@@ -88,10 +114,14 @@ class Home extends StatelessWidget
                   height:60,
                   //action listener for sign up button.
                   onPressed: (){
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const Signup()),
-                    );
+                    changeState();
+                    if(signIn == false)
+                      {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const Signup()),
+                        );
+                      }
                   },
                   color: Colors.green[400],
                   shape: RoundedRectangleBorder(
@@ -100,9 +130,9 @@ class Home extends StatelessWidget
                       ),
                       borderRadius: BorderRadius.circular(40)
                   ),
-                  child: const Text("Sign Up", style: TextStyle(
+                  child: const Text("Signup", style: TextStyle(
                       fontWeight: FontWeight.w600, fontSize: 16, color: Colors.white70
-                  ),),
+                  ),)
                 ),
               ],
             ),

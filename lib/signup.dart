@@ -16,9 +16,14 @@ class _SignupPage extends State<Signup>
   TextEditingController email = TextEditingController();
   TextEditingController pass = TextEditingController();
 
-  Future signup() async
+  bool processing = false;
+
+  void signup() async
   {
-    var url = "https://undrunk-surveyor.000webhostapp.com/signuup.php";
+    setState(() {
+      processing = true;
+    });
+    var url = "https://undrunk-surveyor.000webhostapp.com/cmpe172/signuup.php";
     var response = await http.post(Uri.parse(url), body: {
       "Email": email.text,
       "Password": pass.text,
@@ -38,6 +43,9 @@ class _SignupPage extends State<Signup>
             Fluttertoast.showToast(msg: 'Error');
           }
       }
+    setState(() {
+      processing = true;
+    });
   }
 
   @override
@@ -81,8 +89,8 @@ class _SignupPage extends State<Signup>
                       ),
                       child: Column(
                         children: [
-                          makeInput(label: "Email"),
-                          makeInput(label: "Password", obscureText: true),
+                          makeInputEmail(label: "Email"),
+                          makeInputPassword(label: "Password", obscureText: true),
                         ],
                       ),
                     ),
@@ -107,9 +115,9 @@ class _SignupPage extends State<Signup>
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(40)
                         ),
-                        child: const Text("Sign Up", style: TextStyle(
+                        child: processing == false ? const Text("Sign Up", style: TextStyle(
                           fontWeight: FontWeight.w600, fontSize: 16,
-                        ),),
+                        ),) : const CircularProgressIndicator(backgroundColor: Colors.green,)
                       ),
                     ),
                    ),
@@ -135,28 +143,63 @@ class _SignupPage extends State<Signup>
   }
 }
 
-Widget makeInput({label, obscureText = false})
+Widget makeInputEmail({label, obscureText = false})
 {
+  TextEditingController email = TextEditingController();
+
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      Text(label, style: const TextStyle(
-        fontSize: 15,
-        fontWeight: FontWeight.w400,
-        color: Colors.black87
+      Text(label, style:const TextStyle(
+          fontSize: 15,
+          fontWeight: FontWeight.w400,
+          color: Colors.black87
       ),),
       const SizedBox(height: 5,),
       TextField(
         obscureText: obscureText,
+        controller: email,
         decoration: const InputDecoration(
-          contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal:10),
+          contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(
               color: Colors.grey,
             ),
-        ),
+          ),
           border: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.grey)
+              borderSide: BorderSide(color: Colors.grey)
+          ),
+        ),
+      ),
+      const SizedBox(height: 30,)
+    ],
+  );
+}
+
+Widget makeInputPassword({label, obscureText = false})
+{
+  TextEditingController password = TextEditingController();
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Text(label, style:const TextStyle(
+          fontSize: 15,
+          fontWeight: FontWeight.w400,
+          color: Colors.black87
+      ),),
+      const SizedBox(height: 5,),
+      TextField(
+        obscureText: obscureText,
+        controller: password,
+        decoration: const InputDecoration(
+          contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+              color: Colors.grey,
+            ),
+          ),
+          border: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.grey)
           ),
         ),
       ),

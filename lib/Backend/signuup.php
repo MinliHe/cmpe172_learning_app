@@ -6,18 +6,18 @@ $email = $_POST["email"];
 $password = $_POST["pass"];
 
 $query = "SELECT * FROM signup WHERE email LIKE '$email'";
-$res = mysql_query($con, $query);
-$data = mysql_fetch_array($res);
+$res = mysqli_query($con, $query);
+$data = mysqli_fetch_array($res);
 
 if($data[0] >= 1)
 {
-    echo json_encode("account already exists");
+    echo json_encode("account already exists.");
 }
 else
 {
     //create account
-    $query = "INSERT INTO signup(email, password) VALUES ('$email', '$password')"
-    $res = mysql_query($con,$query)
+    $query = "INSERT INTO signup(email, password) VALUES ('$email', '$password')";
+    $res = mysqli_query($con,$query);
 
     if($res)
     {

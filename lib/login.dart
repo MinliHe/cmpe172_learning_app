@@ -10,14 +10,20 @@ class Login extends StatefulWidget {
   @override
   _LoginPage createState() => _LoginPage();
 }
+
 class _LoginPage extends State<Login>
 {
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
 
-  Future lognin() async
+  bool processing = false;
+
+  void login() async
   {
-    var url = "https://undrunk-surveyor.000webhostapp.com/signuup.php";
+    setState(() {
+      processing = true;
+    });
+    var url = "https://undrunk-surveyor.000webhostapp.com/cmpe172/login.php";
     var response = await http.post(Uri.parse(url), body: {
       "Email": email.text,
       "Password": password.text,
@@ -39,6 +45,9 @@ class _LoginPage extends State<Login>
         print(jsonDecode(data));
       }
     }
+    setState(() {
+      processing = false;
+    });
   }
 
   @override
@@ -82,8 +91,8 @@ class _LoginPage extends State<Login>
               ),
               child: Column(
                 children: [
-                  makeInput(label: "Email"),
-                  makeInput(label: "Password", obscureText: true),
+                  makeInputEmail(label: "Email"),
+                  makeInputPassword(label: "Password", obscureText: true),
                 ],
               ),
             ),
@@ -137,8 +146,10 @@ class _LoginPage extends State<Login>
   }
 }
 
-Widget makeInput({label, obscureText = false})
+Widget makeInputEmail({label, obscureText = false})
 {
+  TextEditingController email = TextEditingController();
+
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
@@ -150,6 +161,7 @@ Widget makeInput({label, obscureText = false})
       const SizedBox(height: 5,),
       TextField(
         obscureText: obscureText,
+        controller: email,
         decoration: const InputDecoration(
           contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
           enabledBorder: OutlineInputBorder(
@@ -159,6 +171,38 @@ Widget makeInput({label, obscureText = false})
           ),
         border: OutlineInputBorder(
           borderSide: BorderSide(color: Colors.grey)
+          ),
+        ),
+      ),
+      const SizedBox(height: 30,)
+    ],
+  );
+}
+
+Widget makeInputPassword({label, obscureText = false})
+{
+  TextEditingController password = TextEditingController();
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Text(label, style:const TextStyle(
+          fontSize: 15,
+          fontWeight: FontWeight.w400,
+          color: Colors.black87
+      ),),
+      const SizedBox(height: 5,),
+      TextField(
+        obscureText: obscureText,
+        controller: password,
+        decoration: const InputDecoration(
+          contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+              color: Colors.grey,
+            ),
+          ),
+          border: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.grey)
           ),
         ),
       ),
