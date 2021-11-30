@@ -1,8 +1,8 @@
 <?php
 
-$db_name = "id17962760_cmpe172_new";
-$db_user = "id17962760_cmpe172user";
-$db_pass = "8OjEJ4n>LfQB4#Ss";
+$db_name = "cmpe172_Learning_app";
+$db_user = "root";
+$db_pass = "cmpe172";
 $db_host = "localhost";
 
 $con = new mysqli_connect($db_host, $db_user, $db_pass, $db_name);
